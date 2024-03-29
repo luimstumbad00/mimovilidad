@@ -17,7 +17,7 @@ singupForm.addEventListener('submit', async (e) => {
     console.log(userCredentials)
 
     window.location.href = './index.html';
-    alert('Binevenido ' + userCredentials.user.email, ' pulsa aceptar para continuar')
+    alert('Binevenido ' + userCredentials.user.email + ' pulsa aceptar para continuar')
     
     } catch (error) {
         console.log(error.message)
