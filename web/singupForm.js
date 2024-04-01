@@ -15,9 +15,10 @@ singupForm.addEventListener('submit', async (e) => {
     try {
         const userCredentials = await createUserWithEmailAndPassword(auth, email, password)
     console.log(userCredentials)
-
+    sessionStorage.setItem("email", email);
+    sessionStorage.setItem("password", password);
     window.location.href = './index.html';
-    alert('Binevenido ' + userCredentials.user.email + ' pulsa aceptar para continuar')
+    alert('Bienvenido ' + userCredentials.user.email + ' pulsa aceptar para continuar')
     
     } catch (error) {
         console.log(error.message)

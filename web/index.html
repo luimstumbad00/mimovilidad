@@ -35,7 +35,14 @@
   * License: https://bootstrapmade.com/license/
   ======================================================== -->
 </head>
-
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    // Obtener datos de usuario de la sesión
+    var email = sessionStorage.getItem("email");
+    var password = sessionStorage.getItem("password");
+    console.log(email)
+});
+</script>
 <body>
 
 
