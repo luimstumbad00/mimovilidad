@@ -39,10 +39,10 @@
   document.addEventListener("DOMContentLoaded", function() {
     // Obtener datos de usuario de la sesión
     var email = sessionStorage.getItem("email");
-    var password = sessionStorage.getItem("password");
-    const credentials = sessionStorage.getItem("sesion");
+    const userCredentialsString = sessionStorage.getItem("userCredentials");
+    const userCredentials = JSON.parse(userCredentialsString);
     console.log(email)
-    console.log(credentials)
+    console.log(userCredentials)
 });
 </script>
 <body>
