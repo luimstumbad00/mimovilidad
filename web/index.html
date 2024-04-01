@@ -37,13 +37,18 @@
 </head>
 <script>
   document.addEventListener("DOMContentLoaded", function() {
-    // Obtener datos de usuario de la sesión
-    var email = sessionStorage.getItem("email");
-    const userCredentialsString = sessionStorage.getItem("userCredentials");
-    const userCredentials = JSON.parse(userCredentialsString);
-    console.log(email)
-    console.log(userCredentials)
-});
+      // Obtener datos de usuario de la sesión
+      var email = sessionStorage.getItem("email");
+      const userCredentialsString = sessionStorage.getItem("userCredentials");
+      const userCredentials = JSON.parse(userCredentialsString);
+      console.log(email)
+      console.log(userCredentials);
+
+      if (email == null) {
+          // Si no hay sesión activa, mostrar un mensaje de alerta
+          alert("No hay una sesión activa. Por favor inicia sesión.");
+      }
+  });
 </script>
 <body>
 
@@ -66,8 +71,8 @@
             <i class="bi bi-list mobile-nav-toggle"></i>
           </nav><!-- .navbar -->
             <button><a class="nav-link logged-out" href="inicio.html">Iniciar</a></button> 
-            <button><a class="nav-link logged-in" href="#" id="logout">Log out</a></button>       
-        </div>
+            <button id="logoutButton"><a class="nav-link logged-in" href="#">Log out</a></button>
+          </div>
       </div>
 
     </div>
@@ -437,6 +442,7 @@
   <!-- Template Main JS File -->
   <script src="assets/js/main.js"></script>
 
+<script src="logout.js"></script>
 </body>
 
 </html>
