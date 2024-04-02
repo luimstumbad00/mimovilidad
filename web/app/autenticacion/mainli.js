@@ -1,5 +1,5 @@
-import {auth} from './app/firebase.js'
-import './app/firebase.js'
+import {auth} from '../firebase.js'
+import '../firebase.js'
 import'./signinForm.js'
 import'./googleLogin.js'
 

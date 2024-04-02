@@ -1,5 +1,5 @@
 import { signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.10.0/firebase-auth.js"
-import { auth } from './app/firebase.js'
+import { auth } from '../firebase.js'
 
 
 const singupForm = document.querySelector('#login-form');
