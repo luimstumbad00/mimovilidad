@@ -11,8 +11,9 @@ singupForm.addEventListener('submit', async (e) => {
         console.log(userCredentials)
         sessionStorage.setItem("userCredentials", JSON.stringify(userCredentials));
         sessionStorage.setItem("email", email);
+        const userUID = credentials.user.uid // Obtener el UID del usuario
         window.location.href = './home.html';
-        alert('Bienvenido ' + userCredentials.user.email + ' pulsa aceptar para continuar')
+        alert('Bienvenido ' + userCredentials.user.email + ' pulsa aceptar para continuar' + 'uid del usuario:  ' + userUID)
     } catch (error) {
         console.log(error.message)
         console.log(error.code)
@@ -21,7 +22,8 @@ singupForm.addEventListener('submit', async (e) => {
         } else if(error.code === 'auth/weak-password'){
             alert('Oh, parece que tu contraseña es demasiado debil')
         }else{
-            alert('Formato de correo no válido')
+            alert('Tu cuenta ha sido creada, serás redirigido al incio de sesion')
+            window.location.href = './login.html';
         }
     }
 })
