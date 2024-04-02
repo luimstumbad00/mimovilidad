@@ -9,5 +9,5 @@ logoutButton.addEventListener("click", function() {
     alert("La sesión ha sido cerrada.");
     
     // Redirigir al usuario a la página de inicio de sesión o cualquier otra página
-    window.location.href = "login.html";
+    window.location.href = "index.html";
 });
