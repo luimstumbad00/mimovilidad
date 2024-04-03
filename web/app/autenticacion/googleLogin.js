@@ -23,7 +23,7 @@ googleButton.addEventListener('click', async () => {
             // Guardar datos en Firestore
             await setDoc(userDocRef, {
                 FECHA: dateString,
-                VEHICULOneVehiculo: false // Inicialmente false
+                VEHICULO: false // Inicialmente false
             });
         }
 
