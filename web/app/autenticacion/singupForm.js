@@ -9,6 +9,15 @@ singupForm.addEventListener('submit', async (e) => {
     try {
         const userCredentials = await createUserWithEmailAndPassword(auth, email, password)
         console.log(userCredentials)
+        // Guardar los datos de fecha y boolean en la base
+        const fechaCreacion = new Date().toISOString();
+        const transporte = false; // No transporte por defecto al crear la cuenta
+        await firebase.database().ref('user/' + userUID).set({
+            userid: userUID,
+            fechaCreacion: fechaCreacion,
+            transporte: transporte
+        });
+
         sessionStorage.setItem("userCredentials", JSON.stringify(userCredentials));
         sessionStorage.setItem("email", email);
         const userUID = credentials.user.uid // Obtener el UID del usuario

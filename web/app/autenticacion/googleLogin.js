@@ -12,10 +12,10 @@ googleButton.addEventListener('click', async () => {
         sessionStorage.setItem("userCredentials", JSON.stringify(credentials));
         sessionStorage.setItem("email", userEmail);
         window.location.href = './home.html';
-        alert('Bienvenido ' + userEmail + '. Pulsa aceptar para continuar.' + 'UID del usuario:' + userUID)
+        alert('Bienvenido ' + userEmail + '. Pulsa aceptar para continuar.' + 'UID del usuario: ' + userUID)
         
         // Mostrar el UID en la consola
-        console.log('UID del usuario:', userUID);
+        console.log('UID del usuario: ', userUID);
     } catch (error) {
         console.error('Error al iniciar sesión:', error.message);
         alert('Error al iniciar sesión: ' + error.message);
