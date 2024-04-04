@@ -58,7 +58,7 @@
             <i class="bi bi-list mobile-nav-toggle"></i>
           </nav><!-- .navbar -->
             <button><a class="nav-link logged-out" href="login.html">Comenzar</a></button> 
-            <button id="logoutButton"><a class="nav-link logged-in" href="#">Log out</a></button>
+            <button id="logoutButton"><a class="nav-link logged-in" href="#">Cerrar Sesión</a></button>
           </div>
       </div>
     </div>
@@ -232,50 +232,184 @@
         <div class="row">
           <div class="col-lg-4 col-md-6">
             <div class="box">
-              <h3>Gratis</h3>
-              <h4><sup>$</sup>0<span> / mes</span></h4>
+              <h3>1 mes</h3>
+              <h4><sup>$</sup>29.99<span> / mes</span></h4>
               <ul>
-                <li>Rutas en línea</li>
-                <li>Mapas e información</li>
-                <li>Avisos y reportes</li>
-                <li class="na">Rutas sin internet</li>
-                <li class="na">Compartir ubicación</li>
+                <li>Beneficios gratis</li>
+                <li>Rutas offline</li>
+                <li>Seguimiento de vehículos</li>
+                <li>Comparte tu ubicacion</li>
+                <li>Consulta informacion offline</li>
+                <li class="na">Super precio</li>
               </ul>
               <div class="btn-wrap">
-                <a href="#" class="btn-buy">Descargar</a>
+                <a href="#" class="btn-buy">
+
+                  <!-- ======= Cham me vas a odiar un boton dentro de otro AAAAAAAAAAA ======= -->
+
+                  <div id="smart-button-container">
+                    <div style="text-align: center;">
+                      <div id="paypal-button-container"></div>
+                    </div>
+                  </div>
+                <script src="https://www.paypal.com/sdk/js?client-id=AcLpV5ZXygYID7Ndf87hEMLX2MW-9_SzjaP7NRb8u48_PJDyqReiSQH-Dunq649A2uacNCG2pSAiMKJc&currency=MXN" data-sdk-integration-source="button-factory"></script>
+                <script>
+                  function initPayPalButton() {
+                    paypal.Buttons({
+                      style: {
+                        shape: 'rect',
+                        color: 'gold',
+                        layout: 'vertical',
+                        label: 'pay',
+                        
+                      },
+              
+                      createOrder: function(data, actions) {
+                        return actions.order.create({
+                          purchase_units: [{"description":"Acceso a 1 mes de beneficios premium de MiMovilidad","amount":{"currency_code":"MXN","value":29.99}}]
+                        });
+                      },
+              
+                      onApprove: function(data, actions) {
+                        return actions.order.capture().then(function(orderData) {
+                          
+                          // Full available details
+                          console.log('Capture result', orderData, JSON.stringify(orderData, null, 2));
+               
+              actions.redirect('https://www.youtube.com/watch?v=q6H9GkxhaOc');
+                          
+                        });
+                      },
+              
+                      onError: function(err) {
+                        console.log(err);
+                      }
+                    }).render('#paypal-button-container');
+                  }
+                  initPayPalButton();
+                </script>
+
+
+
+
+                </a>
               </div>
             </div>
           </div>
           <div class="col-lg-4 col-md-6 mt-4 mt-lg-0">
             <div class="box">
-              <h3>1 mes</h3>
-              <h4><sup>$</sup>29.99<span> / mes</span></h4>
+              <h3>6 meses</h3>
+              <h4><sup>$</sup>149.99<span> / 6 meses</span></h4>
               <ul>
-                <li>Rutas en línea</li>
-                <li>Mapas e información</li>
-                <li>Avisos y reportes</li>
-                <li>Rutas sin internet</li>
-                <li>Compartir ubicación</li>
+                <li>Beneficios gratis</li>
+                <li>Rutas offline</li>
+                <li>Seguimiento de vehículos</li>
+                <li>Comparte tu ubicacion</li>
+                <li>Consulta informacion offline</li>
+                <li class="na">Super precio</li>
               </ul>
               <div class="btn-wrap">
-                <a href="#" class="btn-buy">Comprar</a>
+                <a href="#" class="btn-buy">
+
+                  <!-- ======= Cham me vas a odiar un boton dentro de otro AAAAAAAAAAA ======= -->
+
+                  <div id="smart-button-container-1">
+                    <div style="text-align: center;">
+                      <div id="paypal-button-container-1"></div>
+                    </div>
+                  </div>
+                  <script src="https://www.paypal.com/sdk/js?client-id=YOUR_CLIENT_ID&currency=MXN" data-sdk-integration-source="button-factory"></script>
+                  <script>
+                    function initPayPalButton1() {
+                      paypal.Buttons({
+                        style: {
+                          shape: 'rect',
+                          color: 'gold',
+                          layout: 'vertical',
+                          label: 'pay',
+                        },
+                        createOrder: function(data, actions) {
+                          return actions.order.create({
+                            purchase_units: [{"description":"Acceso a 1 mes de beneficios premium de MiMovilidad","amount":{"currency_code":"MXN","value":149.99}}]
+                          });
+                        },
+                        onApprove: function(data, actions) {
+                          return actions.order.capture().then(function(orderData) {
+                            console.log('Capture result', orderData, JSON.stringify(orderData, null, 2));
+                            actions.redirect('https://www.your-redirect-url.com');
+                          });
+                        },
+                        onError: function(err) {
+                          console.log(err);
+                        }
+                      }).render('#paypal-button-container-1');
+                    }
+                    initPayPalButton1();
+                  </script>
+
+
+
+
+                </a>
               </div>
             </div>
           </div>
           <div class="col-lg-4 col-md-6 mt-4 mt-md-0">
             <div class="box recommended">
               <span class="recommended-badge">Recomendado</span>
-              <h3>6 meses</h3>
-              <h4><sup>$</sup>20.99<span> / mes</span></h4>
+              <h3>Anual</h3>
+              <h4><sup>$</sup>299.99<span> / Año</span></h4>
               <ul>
-                <li>Rutas en línea</li>
-                <li>Mapas e información</li>
-                <li>Avisos y reportes</li>
-                <li>Rutas sin internet</li>
-                <li class="na">Compartir ubicación</li>
+                <li>Beneficios gratis</li>
+                <li>Rutas offline</li>
+                <li>Seguimiento de vehículos</li>
+                <li>Comparte tu ubicacion</li>
+                <li>Consulta informacion offline</li>
+                <li >Super precio</li>
               </ul>
               <div class="btn-wrap">
-                <a href="#" class="btn-buy">Comprar</a>
+                <a href="#" class="btn-buy">
+
+                  <!-- ======= Cham me vas a doiar un boton dentro de otro AAAAAAAAAAA ======= -->
+
+                  <div id="smart-button-container-2">
+                    <div style="text-align: center;">
+                      <div id="paypal-button-container-2"></div>
+                    </div>
+                  </div>
+                  <script src="https://www.paypal.com/sdk/js?client-id=YOUR_CLIENT_ID&currency=MXN" data-sdk-integration-source="button-factory"></script>
+                  <script>
+                    function initPayPalButton2() {
+                      paypal.Buttons({
+                        style: {
+                          shape: 'rect',
+                          color: 'gold',
+                          layout: 'vertical',
+                          label: 'pay',
+                        },
+                        createOrder: function(data, actions) {
+                          return actions.order.create({
+                            purchase_units: [{"description":"Acceso a 6 meses de beneficios premium de MiMovilidad","amount":{"currency_code":"MXN","value":299.99}}]
+                          });
+                        },
+                        onApprove: function(data, actions) {
+                          return actions.order.capture().then(function(orderData) {
+                            console.log('Capture result', orderData, JSON.stringify(orderData, null, 2));
+                            actions.redirect('https://www.your-redirect-url.com');
+                          });
+                        },
+                        onError: function(err) {
+                          console.log(err);
+                        }
+                      }).render('#paypal-button-container-2');
+                    }
+                    initPayPalButton2();
+                  </script>
+
+
+
+
+                </a>
               </div>
             </div>
           </div>
