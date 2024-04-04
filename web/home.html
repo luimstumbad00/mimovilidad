@@ -24,37 +24,28 @@
 <script>
     document.addEventListener("DOMContentLoaded", function() {
         // Obtener datos de usuario de la sesión
-        var email = sessionStorage.getItem("email");
+        var email = null
+        email = sessionStorage.getItem("email");
         const userCredentialsString = sessionStorage.getItem("userCredentials");
         const userCredentials = JSON.parse(userCredentialsString);
         console.log(email)
         console.log(userCredentials);
-
          const userUID = userCredentials.user.uid;
-
          const dateString = new Date();
-
         const day = dateString.getDate();
 const month = dateString.getMonth() + 1; // El mes es devuelto indexado desde 0, por eso se suma 1
 const year = dateString.getFullYear();
-
 // Formatear la fecha en el formato día/mes/año
 const formattedDate = `${day}/${month}/${year}`;
-
-
-
-
-  
-        if (email == null) {
+  if (!email || email === "") {
             // Si no hay sesión activa, mostrar un mensaje de alerta
             alert("No hay una sesión activa. Por favor inicia sesión.");
+            window.location.href = "login.html";
+
         }
         else {
                 // Actualizar el contenido del elemento con el correo electrónico
-
                 alert('ola: ' + userUID + ' ' + formattedDate)
-
-
                 var welcomeMessage = document.getElementById("welcomeMessage");
                 welcomeMessage.textContent = "Bienvenid@ " + email;
             }
@@ -394,6 +385,9 @@ const formattedDate = `${day}/${month}/${year}`;
                   </div>
                   <script src="https://www.paypal.com/sdk/js?client-id=YOUR_CLIENT_ID&currency=MXN" data-sdk-integration-source="button-factory"></script>
                   <script>
+                    const userCredentialsString = sessionStorage.getItem("userCredentials");
+                    const userCredentials = JSON.parse(userCredentialsString);
+                    const userUID = userCredentials.user.uid;
                     function initPayPalButton2() {
                       paypal.Buttons({
                         style: {
@@ -408,6 +402,8 @@ const formattedDate = `${day}/${month}/${year}`;
                           });
                         },
                         onApprove: function(data, actions) {
+                          console.log('Se aprobó tu pago: ', userUID);
+                          alert('Se aprobó tu pago: ' + userUID)
                           return actions.order.capture().then(function(orderData) {
                             console.log('Capture result', orderData, JSON.stringify(orderData, null, 2));
                             actions.redirect('http://127.0.0.1:5500/web/home.html');
@@ -420,10 +416,6 @@ const formattedDate = `${day}/${month}/${year}`;
                     }
                     initPayPalButton2();
                   </script>
-
-
-
-
                 </a>
               </div>
             </div>
